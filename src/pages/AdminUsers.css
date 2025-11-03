@@ -1,0 +1,136 @@
+/* File: src/pages/AdminUsers.css */
+
+.admin-users-container {
+  padding: 1.5rem;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+.admin-users-title {
+  font-size: 2.2rem;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.admin-form {
+  background-color: var(--bg-secondary);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.admin-form p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--bg-surface);
+  border: 1px solid #555;
+  color: var(--text-primary);
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+/* Stili per i bottoni (già presenti nel CSS del modal) */
+.btn-primary {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-image: linear-gradient(to right, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  background-size: 200% auto;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-position: right center;
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+.form-message.success {
+  background-color: #2a5a3a;
+  color: #c3e6cb;
+}
+.form-message.error {
+  background-color: #5a2a2a;
+  color: #f5c6cb;
+}
+
+/* --- Stili per l'avvertimento --- */
+.admin-warning {
+  /* --- MODIFICA QUI --- */
+  margin-top: 1rem; 
+  margin-bottom: 2rem; /* Aggiunge spazio tra l'avviso e il form */
+  /* --- FINE MODIFICA --- */
+  padding: 1.5rem;
+  background-color: var(--bg-surface);
+  border: 1px solid #7a6300; 
+  border-radius: 12px;
+  text-align: center;
+}
+
+.warning-icons {
+  font-size: 2rem;
+  line-height: 1;
+  color: #ffc107; /* Giallo ambrato */
+}
+
+.admin-warning .warning-title {
+  color: #ffc107;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* Sovrascriviamo lo stile <p> del form */
+.admin-warning p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0; /* Resetta padding */
+  border: none; /* Resetta bordo */
+}

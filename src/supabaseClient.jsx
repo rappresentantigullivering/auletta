@@ -1,7 +1,11 @@
 import { createClient } from '@supabase/supabase-js'
 
 // INCOLLA QUI I TUOI VALORI PRESI DA SUPABASE
-const supabaseUrl = 'https://yvnylopwosaoebhemtsd.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2bnlsb3B3b3Nhb2ViaGVtdHNkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NjQzNzQsImV4cCI6MjA3NzM0MDM3NH0.nP2p-m91RttOml_NmntHe-LEbCVPyF9O9XCODvoV180'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error('Le variabili SUPABASE_URL e SUPABASE_ANON_KEY non sono definite. Controlla il tuo file .env.')
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)

@@ -1,0 +1,165 @@
+/* File: src/pages/KeyManagement.css */
+
+.keys-container {
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 1rem auto;
+}
+.keys-title {
+  font-size: 2.2rem;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+/* --- MODIFICHE STILE SLOT --- */
+.slots-grid {
+  display: grid;
+  /* Riduciamo il min-width per farcene stare di più */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem; /* Gap ridotto */
+}
+.slot-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem; /* Padding ridotto */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.slot-card.is-assigned {
+  border-left: 5px solid var(--primary-color);
+}
+.slot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem; /* Margine ridotto */
+}
+.slot-title {
+  font-size: 1rem; /* Font ridotto */
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.slot-user {
+  font-size: 1.2rem; /* Font ridotto */
+  font-weight: 600;
+  color: var(--text-primary);
+  min-height: 2rem; /* Altezza minima ridotta */
+}
+.slot-user.is-empty {
+  color: #666;
+  font-style: italic;
+  font-weight: 400;
+}
+.btn-edit {
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid #444;
+  padding: 0.5rem 1rem; /* Padding ridotto */
+  font-size: 0.9rem; /* Font ridotto */
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+}
+.btn-edit:hover {
+  background-color: #444;
+  color: var(--text-primary);
+}
+/* --- FINE MODIFICHE STILE SLOT --- */
+
+
+/* Stili Modal (Invariati) */
+.modal-backdrop {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); display: flex;
+  justify-content: center; align-items: center; z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+.modal-content {
+  background-color: var(--bg-secondary); border: 1px solid #444;
+  border-radius: 12px; width: 90%; max-width: 450px;
+}
+.modal-header { padding: 1.5rem; border-bottom: 1px solid #333; }
+.modal-title { margin: 0; font-size: 1.4rem; color: var(--text-primary); }
+.modal-body { padding: 1.5rem; }
+.modal-body label { font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: block; }
+.modal-select {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--bg-surface);
+  border: 1px solid #555;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+.modal-footer {
+  padding: 1.5rem; border-top: 1px solid #333;
+  display: flex; justify-content: flex-end; gap: 1rem;
+}
+
+
+/* --- NUOVI STILI PER LA SEZIONE REGOLE --- */
+/* (Copiati da Dashboard.css per coerenza) */
+
+.rules-container {
+  margin-top: 3rem; /* Spazio dopo la griglia chiavi */
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+.rules-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.rules-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.rules-list li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #2a2a2a;
+  display: flex;
+  align-items: baseline; 
+  gap: 0.75rem;
+}
+
+.rules-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.rules-list li:first-child {
+  padding-top: 0;
+}
+
+.rules-list li::before {
+  content: '■';
+  color: var(--primary-color);
+  font-size: 0.9rem; 
+  flex-shrink: 0;
+}

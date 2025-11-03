@@ -1,0 +1,438 @@
+/* File: src/pages/AulettaCare.css */
+
+.auletta-care-container {
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 1rem auto;
+  min-height: 80vh; /* riserva spazio visivo */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.auletta-care-title {
+  font-size: 2.2rem;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  text-align: left;
+  align-self: flex-start; /* forza l’allineamento a sinistra */
+}
+
+.sections-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* <-- MODIFICATO: "stretch" forza i figli ad avere la stessa larghezza */
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .sections-wrapper {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+}
+
+.care-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.care-section h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dashed #333;
+  padding-bottom: 0.75rem;
+}
+
+.section-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.loading-state, .empty-state {
+  text-align: left;
+  color: var(--text-secondary);
+  padding: 1rem;
+}
+
+/* --- Form (Segnalazioni e Lista della Spesa) --- */
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.add-form input,
+.add-form textarea {
+    padding: 0.75rem;
+    background-color: var(--bg-surface);
+    border: 1px solid #555;
+    color: var(--text-primary);
+    font-size: 1rem;
+    border-radius: 8px;
+    resize: vertical;
+}
+
+.add-form textarea {
+    min-height: 80px;
+}
+
+.btn-secondary {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  transition: background-color 0.2s ease;
+  margin-top: 1rem;
+}
+.btn-secondary:hover {
+    background-color: #630000; /* Tonalità più scura del colore primario */
+}
+
+
+/* --- SEZIONE LISTA SEGNALAZIONI --- */
+.report-item {
+  background-color: var(--bg-surface);
+  border-left: 5px solid var(--primary-color);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.report-item:hover {
+  background-color: #272727;
+}
+
+.report-item.resolved {
+  opacity: 0.6;
+  border-left: 5px solid #2a5a3a; /* Verde per risolta */
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.report-subject {
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1 1 60%;
+  margin-bottom: 0.75rem;
+}
+
+.report-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  flex: 1 1 40%;
+  text-align: right;
+}
+
+.report-status-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-bottom-left-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--bg-primary);
+}
+.report-item.resolved .report-status-badge {
+    background-color: #2a5a3a;
+}
+
+
+/* --- SEZIONE LISTA DELLA SPESA --- */
+.shopping-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shopping-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px dashed #333;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.shopping-list li:last-child {
+  border-bottom: none;
+}
+
+.shopping-list li.purchased {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.item-name {
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.item-meta {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.toggle-btn, .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+}
+
+/* --- MODALE --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 90%;
+    width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.modal-body {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.btn-toggle-resolve {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+.btn-resolve {
+    background-color: #9f0303; /* rosso scuro */
+}
+.btn-resolve:hover {
+    background-color: #520101;
+}
+
+.btn-unresolve {
+    background-color: #5a2a2a; /* Rosso scuro */
+}
+.btn-unresolve:hover {
+    background-color: #451e1e;
+}
+
+.btn-close-modal {
+    width: 100%;
+    background: none;
+    border: 1px solid #555;
+    color: var(--text-secondary);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* --- CONTAINER SEZIONE --- */
+.section-container {
+  background-color: var(--bg-secondary);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Se vuoi maggiore separazione visiva tra sezioni */
+.section-container + .section-container {
+  margin-top: 2rem;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.btn-delete-full {
+  width: 100%;
+  background-color: #5a2a2a;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 0.75rem;
+}
+.btn-delete-full:hover {
+  background-color: #7b3737;
+}
+
+
+.report-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status-dot.resolved {
+  background-color: #4caf50; /* verde */
+}
+
+.status-dot.unresolved {
+  background-color: #f44336; /* rosso */
+}
+
+.btn-toggle-resolve svg,
+.btn-delete-full svg {
+  vertical-align: middle;
+}
+
+.btn-toggle-resolve,
+.btn-delete-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+
+/* Allineamento flessibile per la riga dell'articolo */
+.shopping-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Va a capo su schermi piccoli */
+  gap: 0.5rem;
+  padding: 0.85rem 0.5rem; /* Un po' più di padding */
+}
+
+/* Contenitore per i controlli (meta + delete) */
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0; /* Non fa stringere i controlli */
+}
+
+/* Stile per i pulsanti SVG (toggle e delete) */
+.toggle-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  line-height: 1; /* Assicura che l'SVG sia centrato */
+}
+
+/* Stile specifico per il pulsante "check" */
+.toggle-btn {
+  color: var(--text-secondary); /* Colore del cerchio vuoto */
+  margin-right: 0.5rem;
+}
+
+.toggle-btn:hover {
+  background-color: var(--bg-surface);
+  color: #4caf50; /* Verde al passaggio del mouse */
+}
+
+/* Quando l'articolo è comprato, il check diventa verde */
+.shopping-list li.purchased .toggle-btn {
+  color: #4caf50; /* Verde */
+}
+
+/* Stile specifico per il pulsante "delete" */
+.delete-btn {
+  color: #888; /* Grigio neutro */
+  margin-left: 0.5rem;
+}
+
+.delete-btn:hover {
+  background-color: var(--bg-surface);
+  color: #f44336; /* Rosso al passaggio del mouse */
+}

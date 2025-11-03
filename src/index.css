@@ -1,4 +1,5 @@
-/* Reset e Font di base */
+/* File: index.css */
+
 :root {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Helvetica, Arial, sans-serif;
@@ -8,24 +9,29 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Colori DARK MODE */
-  --bg-primary: #121212;
+  --bg-primary: #0f0000; /* Nero profondo */
   --bg-secondary: #1a1a1a;
   --bg-surface: #242424;
   --text-primary: #ffffff;
   --text-secondary: #aaaaaa;
   
-  /* Colori per i gradienti (come richiesto) */
-  --gradient-start: #6a11cb;
-  --gradient-end: #2575fc;
+  /* NUOVI Colori per i gradienti (rosso e nero)
+    Come richiesto, usiamo il rosso "acceso" come punto di partenza
+  */
+  --primary-color: #780018;   /* Rosso cremisi vibrante (il nostro 'rosso acceso') */
+  --gradient-start: #710202;  /* Partenza del gradiente (rosso acceso) */
+  --gradient-end: #8B0000;    /* Fine del gradiente (rosso scuro) */
+  --gradient-h1start:#ed0000;
+  --gradient-h1end: #d20404;
   
   /* Colori UI */
-  --primary-color: #7c3aed; /* Viola */
-  --success-color: #10b981; /* Verde */
-  --error-color: #ef4444; /* Rosso */
+  --success-color: #10b981; 
+  --error-color: #ef4444; 
 
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
+
 
 * {
   margin: 0;
@@ -62,7 +68,7 @@ button {
 }
 
 button.primary {
-  background-image: linear-gradient(to right, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  background-image: linear-gradient(to right, var(--gradient-h1start) 0%, var(--gradient-h1end) 100%);
   background-size: 200% auto;
 }
 button.primary:hover {
