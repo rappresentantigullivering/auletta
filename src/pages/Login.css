@@ -68,22 +68,34 @@
   margin-top: 1.5rem;
 }
 
+/* Contenitore del Logo: Garantisce la Centratura */
 .login-logo-wrapper {
-  text-align: center;
-  /* Margine inferiore ridotto per avvicinare il logo al titolo */
-  margin-bottom: 2.5rem; 
+    /* text-align: center; è la proprietà che centra il logo orizzontalmente */
+    text-align: center;
+    /* Margine inferiore ridotto per avvicinare il logo al titolo */
+    margin-bottom: 2.5rem;
 }
 
+/* Stile del Logo (Desktop) */
 .gulliver-logo {
-  max-width: 260px; /* Logo più grande (prima era 180px) */
-  height: auto;
-  /* La filter va già bene perché usa il --primary-color che è #DC143C */
-  filter: drop-shadow(0 0 8px rgba(150, 1, 1, 0.4)); 
-  transition: transform 0.3s ease-in-out;
+    max-width: 260px; /* Logo più grande */
+    height: auto;
+    /* Ombra a goccia che usa il --primary-color */
+    filter: drop-shadow(0 0 8px rgba(150, 1, 1, 0.4));
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Effetto Hover (Desktop) */
 .gulliver-logo:hover {
-  transform: scale(1.05); /* Piccolo ingrandimento al passaggio del mouse */
+    transform: scale(1.05); /* Piccolo ingrandimento al passaggio del mouse */
+}
+
+/* Ottimizzazione per Mobile: Regola la dimensione massima su schermi piccoli */
+@media (max-width: 600px) {
+    .gulliver-logo {
+        /* Riduci la dimensione massima del logo sui dispositivi mobili */
+        max-width: 200px;
+    }
 }
 
 /* Effetto di sfondo sfumato per il login-box (opzionale, ma aggiunge un tocco) */
